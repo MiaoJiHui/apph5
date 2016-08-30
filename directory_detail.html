@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>That's App H5</title>
+	<link rel="stylesheet" type="text/css" href="css/app-style.css">
+</head>
+<body>
+	<div class="app-container">
+		<div class="app-content">
+			<div class="img-container">
+				<!-- 轮播 -->
+				<div id='app-slider' class='swipe'>
+				  <div class='swipe-wrap'>
+				  	<div><a href="#"><img class="app-lazyload" src="img/default.png" data-original="img/1.jpg"></a></div>
+				    <div><img class="app-lazyload" src="img/default.png" data-original="img/2.jpg"></div>
+				    <div><img class="app-lazyload" src="img/default.png" data-original="img/3.jpg"></div>
+					
+				  </div>
+				  
+				</div>
+				
+			</div>
+			<div class="headline">
+				<h2>Shanghai Prefect Night Out Review at Xuhui District</h2>
+				<p>By <a href="#">Joseph Miao</a>, <time>November 27, 2015</time></p>
+			</div>
+			<div class="content">
+				<p>
+					Command-C	Copy the selected item to the Clipboard. This also works for files in the Finder.
+					Command-V	Paste the contents of the Clipboard into the current document or app. This also works for files in the Finder.
+					Command-Z	Undo the previous command. You can then press Command-Shift-Z to Redo, reversing the undo command. In some apps, you can undo and redo multiple commands.
+					Command-A	Select All items. <br><br>
+					Command-F	Find: Open a Find window, or find items in a document.
+					Command-G	Find Again: Find the next occurrence of the item previously found. To find the previous occurrence, press Command-Shift-G.
+					Command-H	Hide the windows of the front app. To view the front app but hide all other apps, press Command-Option-H.<br>
+					<img class="app-lazyload" src="img/default.png" data-original="img/2.jpg">
+					<br>
+
+					Command-M	Minimize the front window to the Dock. To minimize all windows of the front app, press Command-Option-M.
+					Command-N	New: Open an new document or window.
+					Command-O	Open the selected item, or open a dialog to select a file to open.
+					Command-P	Print the current document.
+					Command-S	Save the current document.
+					Command-W	Close the front window. To close all windows of the app, press Command-Option-W.
+					Command-Q	Quit the app.
+				</p>
+
+				<div class="tags">
+					<a href="#" type="button" class="btn btn-tag">Shanghai</a>
+					<a href="#" type="button" class="btn btn-tag">Hello</a>
+					<a href="#" type="button" class="btn btn-tag">Twitter</a>
+					<a href="#" type="button" class="btn btn-tag">Facebook</a>
+					<a href="#" type="button" class="btn btn-tag">Tecent</a>
+					<a href="#" type="button" class="btn btn-tag">Alibaba</a>
+				</div>
+			</div>
+			
+		</div>
+		<div class="app-footer">
+			<h2>MORE NEWS</h2>
+			<div class="item">
+			<img class="app-lazyload" src="img/default.png" data-original="img/3.jpg">
+				<h3>LuYuan, China Miss World 2015, helloworld javascript</h3>
+				<p>
+					Command-P	Print the current document.
+					Command-S	Save the current document.
+					Command-W	Close the front window. To close all windows of the app, press Command-Option-W.
+					Command-Q	Quit the app.
+				</p>
+			</div>
+			<div class="item">
+			<img class="app-lazyload" src="img/default.png" data-original="img/4.jpg">
+				<h3>LuYuan, China Miss World 2015</h3>
+				<p>
+					Command-P	Print the current document.
+					Command-S	Save the current document.
+					Command-W	Close the front window. To close all windows of the app, press Command-Option-W.
+					Command-Q	Quit the app.
+				</p>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/swipe.js"></script>
+	<script type="text/javascript" src="js/app-main.js"></script>
+	<script type="text/javascript">
+		$('.app-lazyload').picLazyLoad();
+		// pure JS
+		var elem = document.getElementById('app-slider');
+		window.mySwipe = Swipe(elem, {
+		  // startSlide: 4,
+		  // auto: 3000,
+		  continuous: false,
+		  // disableScroll: true,		//当滚动滚动条时是否停止幻灯片滚动
+		  // stopPropagation: true,		//是否停止事件冒泡 
+		  callback: function(index, element) {
+  			  getCurrentDot(index);
+		  },		//幻灯片运行中的回调函数
+		  // transitionEnd: function(index, element) {}		//动画运行结束的回调函数
+		});
+
+	</script>
+</body>
+</html>
