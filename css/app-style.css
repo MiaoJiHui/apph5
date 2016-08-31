@@ -4,13 +4,245 @@
  * 2016-08-28
  **/
 
- @font-face {
-  font-family: 'Abadi MT Condensed Extra Bold';
-  src: url('fonts/Abadi MT Condensed Extra Bold.ttf?nv7ppb') format('truetype')
+/* 在icomoon网站生成的字体库 */
+@font-face {
+  font-family: 'icomoon';
+  src: url('../font/icomoon.ttf?ndcbj7') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/** icon 图标字体 **/
+.icon-search:before {
+  content: "\f002";
+}
+.icon-star:before {
+  content: "\f005";
+}
+.icon-star-o:before {
+  content: "\f006";
+}
+.icon-check:before {
+  content: "\f00c";
+}
+.icon-close:before {
+  content: "\f00d";
+}
+.icon-remove:before {
+  content: "\f00d";
+}
+.icon-times:before {
+  content: "\f00d";
+}
+.icon-clock-o:before {
+  content: "\f017";
+}
+.icon-flag:before {
+  content: "\f024";
+}
+.icon-pencil:before {
+  content: "\f040";
+}
+.icon-chevron-left:before {
+  content: "\f053";
+}
+.icon-chevron-right:before {
+  content: "\f054";
+}
+.icon-angle-left:before {
+  content: "\f104";
+}
+.icon-angle-right:before {
+  content: "\f105";
+}
+.icon-angle-up:before {
+  content: "\f106";
+}
+.icon-angle-down:before {
+  content: "\f107";
+}
+.icon-automobile:before {
+  content: "\f1b9";
+}
+.icon-car:before {
+  content: "\f1b9";
+}
+.icon-cab:before {
+  content: "\f1ba";
+}
+.icon-taxi:before {
+  content: "\f1ba";
+}
+.icon-bus:before {
+  content: "\f207";
+}
+.icon-calendar:before {
+  content: "\f068";
+}
+.icon-triangle-down:before {
+  content: "\f05b";
+}
+.icon-triangle-up:before {
+  content: "\f0aa";
+}
+.icon-home2:before {
+  content: "\e901";
+}
+.icon-location:before {
+  content: "\e947";
+}
+.icon-mobile:before {
+  content: "\e958";
+}
+.icon-exclam:before {
+  content: "\21";
+}
+.icon-quotedbl:before {
+  content: "\22";
+}
+.icon-numbersign:before {
+  content: "\23";
+}
+.icon-dollar:before {
+  content: "\24";
+}
+.icon-percent:before {
+  content: "\25";
+}
+.icon-ampersand:before {
+  content: "\26";
+}
+.icon-quotesingle:before {
+  content: "\27";
+}
+.icon-parenleft:before {
+  content: "\28";
+}
+.icon-parenright:before {
+  content: "\29";
+}
+.icon-asterisk:before {
+  content: "\2a";
+}
+.icon-plus:before {
+  content: "\2b";
+}
+.icon-comma:before {
+  content: "\2c";
+}
+.icon-hyphen:before {
+  content: "\2d";
+}
+.icon-period:before {
+  content: "\2e";
+}
+.icon-slash:before {
+  content: "\2f";
+}
+.icon-zero:before {
+  content: "\30";
+}
+.icon-one:before {
+  content: "\31";
+}
+.icon-two:before {
+  content: "\32";
+}
+.icon-three:before {
+  content: "\33";
+}
+.icon-four:before {
+  content: "\34";
+}
+.icon-five:before {
+  content: "\35";
+}
+.icon-six:before {
+  content: "\36";
+}
+.icon-seven:before {
+  content: "\37";
+}
+.icon-eight:before {
+  content: "\38";
+}
+.icon-nine:before {
+  content: "\39";
+}
+.icon-colon:before {
+  content: "\3a";
+}
+.icon-semicolon:before {
+  content: "\3b";
+}
+.icon-less:before {
+  content: "\3c";
+}
+.icon-equal:before {
+  content: "\3d";
+}
+.icon-greater:before {
+  content: "\3e";
+}
+.icon-question:before {
+  content: "\3f";
+}
+.icon-at:before {
+  content: "\40";
+}
+.icon-bracketleft:before {
+  content: "\5b";
+}
+.icon-backslash:before {
+  content: "\5c";
+}
+.icon-bracketright:before {
+  content: "\5d";
+}
+.icon-asciicircum:before {
+  content: "\5e";
+}
+.icon-underscore:before {
+  content: "\5f";
+}
+.icon-grave:before {
+  content: "\60";
+}
+.icon-braceleft:before {
+  content: "\7b";
+}
+.icon-bar:before {
+  content: "\7c";
+}
+.icon-braceright:before {
+  content: "\7d";
+}
+.icon-asciitilde:before {
+  content: "\7e";
+}
+.icon-yen:before {
+  content: "\a5";
+}
+.icon-copyright:before {
+  content: "\a9";
+}
+.icon-registered:before {
+  content: "\ae";
+}
 /* reset */
 * {
   background-repeat: no-repeat;
@@ -24,9 +256,9 @@ html {
   	font-size: 62.5%;  //	100%/16px ==> 1rem = 10px
 }
 body {
-	margin:0;
-	padding:0;
-	font-size:1.4rem;  //14px
+	margin: 0;
+	padding: 0;
+	font-size: 1.4rem;  //14px
 }
 ol, ul {
     list-style: none;
@@ -37,6 +269,7 @@ ol, ul {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+    width: 100%;
 }
 button, input, select, textarea {
     background-color: transparent;
@@ -48,44 +281,46 @@ h1 { font-size: 3.2rem;}
 h2 { font-size: 2.5rem;}
 h3 { font-size: 1.8rem;}
 p { font-size: 1.6rem;}
+
 h1,h2,h3 {
-	font-family: Abadi MT Condensed Extra Bold, sans-serif;
-	margin:0;
+	font-family: 'icomoon', sans-serif;
+	margin: 0;
 	line-height: 1.2;
 }
 a{
-	color:#1da1f2;
+    color: #000;
 	text-decoration: none;
 }
+.hide { display: none;}
 /** apph5页通用样式 **/
 .app-container {
-	padding:1rem;
+	padding: 1rem;
 }
 .app-container img {
-	width:100%;
+	width: 100%;
 }
 .app-container .headline {
-	margin-top:1rem;
+	margin-top: 1rem;
 }
 .app-container .headline > p {
-	margin:0;
-	font-size:1.4rem;
+	margin: 0;
+	font-size: 1.4rem;
 }
-	/* tag 样式*/
-.app-container .tags { margin:1rem 0;}
+/* tag 样式*/
+.app-container .tags { margin: 1rem 0;}
 .app-container a.btn-tag {
-	width:auto;
-	border:1px solid #9a9a9a;
+	width: auto;
+	border: 1px solid #9a9a9a;
 	color:#9a9a9a;
-	border-radius:0.4rem;
+	border-radius: 0.4rem;
     display: inline-block;
     height: 3rem;
     line-height: 3rem;
     padding: 0 1rem;
-    padding-right:1.5rem;
+    padding-right: 1.5rem;
     margin-bottom: 0.5rem;
     border-right-width: 0;
-	position:relative;
+	position: relative;
 	margin-right: 1.2rem;
 }
 .app-container a.btn-tag:before {
@@ -152,30 +387,30 @@ a{
 }*/
 
 .app-container .content {
-	border-bottom:1px dashed #9a9a9a;
+	border-bottom: 1px dashed #9a9a9a;
 }
 
 div.app-footer {
-	margin-top:1rem;
+	margin-top: 1rem;
 }
 .app-footer  h2 {
 	display: inline-block;
-	border-bottom:0.4rem solid #fc4103;
+	border-bottom: 0.4rem solid #fc4103;
 }
 .app-footer .item {
-	margin-top:1rem;
+	margin-top: 1rem;
 }
 .app-footer .item:not(:last-of-type) {
-	margin-top:1rem;
-	border-bottom:1px dashed #9a9a9a;
+	margin-top: 1rem;
+	border-bottom: 1px dashed #9a9a9a;
 }
 .app-footer .item > img {
-	width:100%;
+	width: 100%;
 	max-height: 12rem;
 }
 /* 多行文本溢出*/
 .app-footer .item > p{
-	margin:0.5rem 0;
+	margin: 0.5rem 0;
 	height: 5rem;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -186,9 +421,9 @@ div.app-footer {
 
 .app-footer .item > h3 {
 	width: 100%;
-	margin:0.5rem 0;
+	margin: 0.5rem 0;
 	white-space: nowrap;
-	overflow:hidden;
+	overflow: hidden;
 	text-overflow: ellipsis;
 }
 .app-container .player video {
@@ -200,6 +435,9 @@ div.app-footer {
 }
 .video-detail .content p {
 	margin: 0 ;
+}
+.headline p > a {
+    color: #265386;
 }
 
 /** 轮播swiper **/
@@ -213,8 +451,8 @@ div.app-footer {
     position: relative;
 }
 .swipe-wrap > div {
-  	float:left;
-  	width:100%;
+  	float: left;
+  	width: 100%;
   	position: relative;
 }
 ul.dots {
@@ -225,13 +463,71 @@ ul.dots {
 }
 ul.dots > li {
 	display: inline-block;
-	float:left;
-	width:.9rem;
-	height:.9rem;
+	float: left;
+	width: .9rem;
+	height: .9rem;
 	background-color: rgba(255,255,255,.6);
-	border-radius: 50%;
-	margin-right:1.2rem;
+	border-radius:  50%;
+	margin-right: 1.2rem;
 }
 ul.dots > li.active{
 	background-color: #fff
+}
+
+/* directory_detail */
+.directory_detail .review-star .icon-star {
+    color: #2486c3;
+    font-size: 1.6rem;
+}
+.directory_detail .review-star .icon-star-o {
+    color: #ccc;
+    font-size: 1.6rem;
+}
+.directory_detail {
+    padding: 0;
+}
+.directory_detail .headline {
+    padding: 1rem;
+    margin-top: 0;
+}
+.directory_detail .add-review {
+    color: #08d1e2;
+    margin-left: 1rem;
+}
+.directory_detail .review-star {
+    margin-top: .4rem;
+}
+.directory_detail .content , .directory_detail .app-footer {
+    padding: 1rem;
+}
+.info-list .info-table {
+    background-color: #fbf5f4;
+    border-bottom: 1px solid #e5cec9;
+}
+.info-list .info-table tr {
+    font-size: 1.6rem;
+    height: 4rem;
+    border-top: 1px solid #e5cec9;
+}
+.info-list .info-table i {
+    font-size: 1.6rem;
+    margin-right: 1.4rem;
+}
+.info-list .info-table tr > td:first-child {
+    padding-left: 1.4rem;
+    width: 35%;
+}
+.info-list .info-table tr > td:last-child {
+    color: #878585;
+}
+.info-list .info-table .phone {
+    color: #1da1f2;
+}
+    /* 1st !important */
+.info-table .taxi{
+    color: #000 !important;
+}
+.info-table .icon-angle-right {
+    color: #ccc;
+    font-size: 2rem !important;
 }
