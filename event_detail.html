@@ -21,29 +21,23 @@
 			</div>
 			<div class="headline">
 				<h2>Shanghai Prefect Resturant</h2>
-				<div class="review-star">
-					<label>
-						<i class="icon-star"></i>
-						<i class="icon-star"></i>
-						<i class="icon-star"></i>
-						<i class="icon-star-o"></i>
-						<i class="icon-star-o"></i>
-					</label>
-					<a class="add-review" href="#">Add your review!</a>
-				</div>
+				
 			</div>
 			<div class="info-list">
+				
+				<!-- 这是event_detail页中的table列表 -->
 				<table class="info-table">
 					<tbody>
 						<tr>
-							<td><i class="icon-home2"></i><span>Address</span></td>
-							<td>1116 Yan'an Xi Lu</td>
+							<td><i class="icon-calendar"></i><span>Date</span></td>
+							<td>Nov.25 - Jau.1</td>
 						</tr>
 						<tr>
-							<td class="taxi" colspan="2"><a class="taxi-printout" href="#"><i class="icon-taxi"></i><span>地址 &nbsp;(Taxi printout)</span></a></td>
+							<td><i class="icon-clock-o"></i><span>Time</span></td>
+							<td>6pm-10pm</td>
 						</tr>
 						<tr>
-							<td><i class="icon-location"></i><span>Region</span></td>
+							<td><i class="icon-flag"></i><span>Venue</span></td>
 							<td>Shanghai Pudong Century Park </td>
 						</tr>
 						<tr>
@@ -51,11 +45,15 @@
 							<td>OCT , Line Luonao</td>
 						</tr>
 						<tr>
+							<td><i class="icon-location"></i><span>Location</span></td>
+							<td>Shanghai Pudong Century Park</td>
+						</tr>
+						<tr>
 							<td><i class="icon-mobile"></i><span>Phone</span></td>
 							<td><span class="phone">6113840</span></td>
 						</tr>
 					</tbody>
-				</table>	
+				</table>
 			</div>
 			<div class="content">
 				<p>
@@ -98,7 +96,7 @@
 
 		</div>
 		<div class="app-footer">
-			<h2>EVENTS & PROMOTIONS</h2>
+			<h2>MORE NEWS</h2>
 			<div class="item">
 			<img class="app-lazyload" src="img/default.png" data-original="img/3.jpg">
 				<h3>LuYuan, China Miss World 2015, helloworld javascript</h3>
@@ -142,6 +140,7 @@
 		  // transitionEnd: function(index, element) {}		//动画运行结束的回调函数
 		});
 		Zepto(function($){
+			//高德地图api
 	    	var map = new AMap.Map('map-container', {
 	    	  resizeEnable: true,
 		      center: [121.498586, 31.239637],
@@ -153,7 +152,6 @@
 			map.setLang("en");
 			map.addControl(toolBar);
 	    });
-		  
 	</script>
 </body>
 </html>

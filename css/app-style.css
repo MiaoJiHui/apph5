@@ -279,13 +279,14 @@ button, input, select, textarea {
 }
 h1 { font-size: 3.2rem;}
 h2 { font-size: 2.5rem;}
-h3 { font-size: 1.8rem;}
+h3 { font-size: 2.2rem;}
 p { font-size: 1.6rem;}
 
 h1,h2,h3 {
 	font-family: 'icomoon', sans-serif;
 	margin: 0;
 	line-height: 1.2;
+  font-weight: 300;
 }
 a{
     color: #000;
@@ -527,7 +528,46 @@ ul.dots > li.active{
 .info-table .taxi{
     color: #000 !important;
 }
+.info-table .taxi-printout{
+    display: block;
+    position: relative;
+}
+.info-table .taxi-printout:before {
+    font-family: 'icomoon';
+    content: "\f105";
+    position: absolute;
+    right: 1rem;
+    font-size: 1.8rem;
+    color: #ccc;
+    line-height: 2.6rem;
+
+}
+    /* 2nd */
 .info-table .icon-angle-right {
     color: #ccc;
     font-size: 2rem !important;
+}
+.directory_detail .content {
+  border-bottom-style: none;
+}
+.directory_detail div.map {
+  padding: 0 1rem;
+  min-height: 24rem;
+  width: 100%;
+  
+}
+.map > .map-list {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  width: 100%;
+  min-height: inherit;
+  border-top: 1px dashed #9a9a9a;
+  border-bottom: 1px dashed #9a9a9a;
+}
+.map-list > h3 {
+  color: rgba(0,0,0,0.6);
+}
+.map-list > div {
+  min-height: inherit;
+  width: 100%;
 }
