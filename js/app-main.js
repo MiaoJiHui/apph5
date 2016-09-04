@@ -59,9 +59,18 @@
 
 
 /** 抽取数字 **/
-function getNum(text){
+function getNum(text){  //不考虑小数点，只匹配字符前的数字如 13％==>13   12.35==>12
     // i是表示区分大小写，g是全局模式如果不区分东西写
-    var value = parseInt(text.replace(/[^0-9]/ig,"%")); 
+    var value = parseInt(text.replace(/[^0-9]/ig,"")); 
+    // var value = parseInt(text.replace(/[]/ig,"")); 
+    return value;
+}
+console.info(getNum("12.35"));
+console.info(getNum("1!2%35"));
+// 带替换参数
+function getNum(text, replaced_c){
+    // i是表示区分大小写，g是全局模式如果不区分东西写
+    var value = parseInt(text.replace(/[^0-9]/ig,replaced_c)); 
     return value;
 }
 
@@ -108,6 +117,29 @@ function minifyFontSize(){
 
 }
 
+/** 改变行间距 **/
+
+function widenLine(){
+
+    // 第一次获取的是px值，如15px，所以要做相应处理
+    var html_lineH = $("html").css("line-height");
+    console.log(html_lineH);
+    if(html_lineH.indexOf("px") > 0){
+        var toNum = getNum(html_lineH);
+        $("html").css("line-height",parseFloat((toNum/10)+0.3));
+    }else if(html_lineH < 2.5){     
+        $("html").css("line-height",parseFloat(html_lineH+0.3));
+    }
+    // var html_lineH = getNum($("html").css("line-height"));  //默认行间距1.5
+    // if(html_lineH < 22){
+    //     $("html").css("line-height",parseFloat((html_lineH/10)+0.3));
+    // }
+    // if(html_lineH > 1 && html_lineH < 3){
+
+    // }
+    
+
+}
 /* slider轮播生成小圆点 */
 function generateDots(){
     var imgs_len = $(".swipe-wrap").find("img").length;

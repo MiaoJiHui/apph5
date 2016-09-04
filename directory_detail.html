@@ -37,7 +37,7 @@
 					<tbody>
 						<tr>
 							<td><i class="icon-home2"></i><span>Address</span></td>
-							<td>1116 Yan'an Xi Lu</td>
+							<td>1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu</td>
 						</tr>
 						<tr>
 							<td class="taxi" colspan="2"><a class="taxi-printout" href="#"><i class="icon-taxi"></i><span>地址 &nbsp;(Taxi printout)</span></a></td>
@@ -141,6 +141,8 @@
 		  },		//幻灯片运行中的回调函数
 		  // transitionEnd: function(index, element) {}		//动画运行结束的回调函数
 		});
+		// 页面加载后ajax调用如下方法
+		// comments(10,url)
 		Zepto(function($){
 	    	var map = new AMap.Map('map-container', {
 	    	  resizeEnable: true,
@@ -152,6 +154,8 @@
 		    })
 			map.setLang("en");
 			map.addControl(toolBar);
+
+			
 	    });
 		  
 	</script>

@@ -1,0 +1,35 @@
+{
+  "name": "apph5",
+  "version": "1.0.0",
+  "description": "My static site builder for apph5",
+  "engines": {
+    "node": ">=0.12.0 ~5.9.0",
+    "npm": ">=2.14.12 ~3.7.3"
+  },
+  "homepage": "http://miaojihui.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vigetlabs/gulp-starter.git"
+  },
+  "scripts": {
+    "start": "gulp",
+    "gulp": "gulp",
+    "development": "gulp",
+    "production": "gulp production"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-jshint": "^2.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-watch": "^4.3.9",
+    "jshint": "^2.9.2"
+  },
+  "license": "MIT",
+  "dependencies": {}
+}
