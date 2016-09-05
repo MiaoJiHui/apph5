@@ -19,27 +19,36 @@ gulp.task('lint', function() {
         .pipe(jshint.reporter('default'));
 });
 
-// Compile Our Sass + autoprefixer
+// Compile Our Sass 
 gulp.task('sass', function() {
     return gulp.src('scss/*.scss')
         .pipe(sass())
         .pipe(gulp.dest('css'));
 });
 
-// .pipe(autoprefixer({
-//             browsers: ['last 2 versions'],
-//             cascade: false
-//         })
 
-// css合并＋压缩
+// css合并＋压缩 + 浏览器兼容
 gulp.task('cssmin', function(){
     return gulp.src('css/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(concatCss("css/app-bundle.css"))
-
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist'))
         
+});
+// 测试用
+gulp.task('autoprefixer', function(){
+    return gulp.src('css/app-style.css')
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(rename({suffix: '.auto'}))
+        .pipe(gulp.dest('css'))
 });
 
 // Concatenate & Minify JS
@@ -61,4 +70,4 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts', 'cssmin', 'watch']);
+gulp.task('default', ['lint', 'scripts', 'cssmin', 'watch']);

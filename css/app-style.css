@@ -286,11 +286,19 @@ h1,h2,h3 {
 	font-family: 'icomoon', sans-serif;
 	margin: 0;
 	line-height: 1.2;
-  font-weight: 300;
+    font-weight: 300;
 }
 a{
     color: #000;
 	text-decoration: none;
+}
+textarea {
+    width: 100%;
+    border: 1px solid #ccc;;
+    // background-color: #eee
+}
+textarea:focus {
+    outline: none;
 }
 .hide { display: none;}
 /** apph5页通用样式 **/
@@ -352,40 +360,6 @@ a{
     background-color: #fff;
     border-radius: 50%;
 }
-/*.app-container .btn-tag {
-	width: auto;
-    height: 24px;
-    border: 1px solid #9a9a9a;
-    border-radius: 0.4rem;
-    border-right: 0;
-    background-color: #f4f4f4;
-    color: #9a9a9a;
-    position: relative;
-    margin-right: 1rem;
-    line-height: 1rem;
-    margin-bottom: 2px;
-    font-size: 1.2rem;
-    padding: 5px 15px 0px 6px ;
-}
-.app-container .btn-tag:before {
-	content: "";
-    position: absolute;
-    width: 19px;
-    height: 20px;
-    border: 2px solid #9a9a9a;
-    -webkit-transform: rotate(45deg) scale(0.75) translate(-1px,0px) skew(14deg,13deg);
-    -webkit-transform-origin: top left;
-    -moz-transform: rotate(45deg) scale(0.75) translate(-1px,0px) skew(14deg,13deg);
-    -moz-transform-origin: top left;
-    transform: rotate(45deg) scale(0.75) translate(-1px,0px) skew(14deg,13deg);
-    transform-origin: top left;
-    border-bottom: 0;
-    border-left: 0;
-    border-radius: 4px;
-    background-color: #f4f4f4;
-    right: -18px;
-    top: -1px;
-}*/
 
 .app-container .content {
 	border-bottom: 1px dashed #9a9a9a;
@@ -547,6 +521,15 @@ ul.dots > li.active{
     color: #ccc;
     font-size: 2rem !important;
 }
+.info-table td > p {
+    margin: 0;
+    max-height: 8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
 .directory_detail .content {
   border-bottom-style: none;
 }
@@ -570,4 +553,41 @@ ul.dots > li.active{
 .map-list > div {
   min-height: inherit;
   width: 100%;
+}
+.pop-table tr td:first-child{
+    text-align: left;
+}
+.layui-m-layerchild.pop-mjh h3 {
+    font-size: 2rem;
+    border-bottom: 1px solid #ccc;
+}
+.pop-mjh .layui-m-layercont{
+    padding-top: 2rem;
+}
+.pop-mjh .pop-table tr{
+    line-height: 3.6rem;
+}
+.pop-mjh .div-area > p { 
+    text-align: left;
+    font-size: 1.4rem;
+}
+.pop-mjh .layui-m-layerbtn span[yes] {
+    // color: #fff;
+    // background-color: #fc4103;
+    color: #fc4103;
+}
+/* map_detail页 */
+.map_detail {
+    margin: 0;
+    padding: 0;
+}
+.map_detail .words-content > p {
+    margin: 0;
+}
+
+.map_detail .words-content {
+    max-height: 10rem;
+    text-align: center;
+    width: 60%;
+    margin: 10px auto;
 }

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>That's App H5</title>
+	<link rel="stylesheet" type="text/css" href="css/layer.css">
 	<link rel="stylesheet" type="text/css" href="css/app-style.css">
 </head>
 <body>
@@ -29,7 +30,7 @@
 						<i class="icon-star-o"></i>
 						<i class="icon-star-o"></i>
 					</label>
-					<a class="add-review" href="#">Add your review!</a>
+					<a class="add-review" href="javascript:;">Add your review!</a>
 				</div>
 			</div>
 			<div class="info-list">
@@ -37,18 +38,18 @@
 					<tbody>
 						<tr>
 							<td><i class="icon-home2"></i><span>Address</span></td>
-							<td>1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu1116 Yan'an Xi Lu</td>
+							<td><p>1116 Yan'an Xi Lu1116 </p></td>
 						</tr>
 						<tr>
 							<td class="taxi" colspan="2"><a class="taxi-printout" href="#"><i class="icon-taxi"></i><span>地址 &nbsp;(Taxi printout)</span></a></td>
 						</tr>
 						<tr>
 							<td><i class="icon-location"></i><span>Region</span></td>
-							<td>Shanghai Pudong Century Park </td>
+							<td><p>Shanghai Pudong Century Park</p></td>
 						</tr>
 						<tr>
 							<td><i class="icon-bus"></i><span>Station</span></td>
-							<td>OCT , Line Luonao</td>
+							<td><p>OCT , Line Luonao</p></td>
 						</tr>
 						<tr>
 							<td><i class="icon-mobile"></i><span>Phone</span></td>
@@ -120,15 +121,79 @@
 				</p>
 			</div>
 		</div>
+		<div class="pop-form hide">
+			<form action="" id="review-form" method="post">
+				<table class="pop-table">
+					<tr>
+						<td>Overtall</td>
+						<td>
+							<input type="radio" name="overtall" value="1">1 
+							<input type="radio" name="overtall" value="2">2
+							<input type="radio" name="overtall" value="3">3 
+							<input type="radio" name="overtall" value="4">4 
+							<input type="radio" name="overtall" value="5">5 
+						</td>
+					</tr>
+					<tr>
+						<td>Quality</td>
+						<td>
+							<input type="radio" name="quality" value=1>1 
+							<input type="radio" name="quality" value=2>2
+							<input type="radio" name="quality" value=3>3 
+							<input type="radio" name="quality" value=4>4 
+							<input type="radio" name="quality" value=5>5 
+						</td>
+					</tr>
+					<tr>
+						<td>Environment</td>
+						<td>
+							<input type="radio" name="environment" value=1>1 
+							<input type="radio" name="environment" value=2>2
+							<input type="radio" name="environment" value=3>3 
+							<input type="radio" name="environment" value=4>4 
+							<input type="radio" name="environment" value=5>5 
+						</td>
+					</tr>
+					<tr>
+						<td>Value</td>
+						<td>
+							<input type="radio" name="value" value=1>1 
+							<input type="radio" name="value" value=2>2
+							<input type="radio" name="value" value=3>3 
+							<input type="radio" name="value" value=4>4 
+							<input type="radio" name="value" value=5>5 
+						</td>
+					</tr>
+					<tr>
+						<td>Service</td>
+						<td>
+							<input type="radio" name="service" value=1>1 
+							<input type="radio" name="service" value=2>2
+							<input type="radio" name="service" value=3>3 
+							<input type="radio" name="service" value=4>4 
+							<input type="radio" name="service" value=5>5 
+						</td>
+					</tr>
+				</table>
+				<div class="div-area">
+					<p>Review Content</p>
+					<textarea rows="3" class="review" placeholder="Please enter your review"></textarea>
+				</div>
+			</form>
+		</div>
+		
 	</div>
 	<script type="text/javascript" src="js/zepto.min.js"></script>
 	<script type="text/javascript" src="js/swipe.js"></script>
 	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=14b1ac87ce81e76c481b9ca09bfb8ae1&&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar">
 	</script>
+	<script type="text/javascript" src="js/layer.js"></script>
 	<script type="text/javascript" src="js/app-main.js"></script>
 	<script type="text/javascript">
+		// 图片懒加载
 		$('.app-lazyload').picLazyLoad();
-		// pure JS
+
+		// 轮播
 		var elem = document.getElementById('app-slider');
 		window.mySwipe = Swipe(elem, {
 		  // startSlide: 4,
@@ -136,14 +201,17 @@
 		  continuous: false,
 		  // disableScroll: true,		//当滚动滚动条时是否停止幻灯片滚动
 		  // stopPropagation: true,		//是否停止事件冒泡 
-		  callback: function(index, element) {
+		  callback: function(index, element) {		//幻灯片运行中的回调函数
   			  getCurrentDot(index);
-		  },		//幻灯片运行中的回调函数
+		  },		
 		  // transitionEnd: function(index, element) {}		//动画运行结束的回调函数
 		});
+
 		// 页面加载后ajax调用如下方法
 		// comments(10,url)
+
 		Zepto(function($){
+			// 高德地图
 	    	var map = new AMap.Map('map-container', {
 	    	  resizeEnable: true,
 		      center: [121.498586, 31.239637],
@@ -155,7 +223,44 @@
 			map.setLang("en");
 			map.addControl(toolBar);
 
-			
+			// review弹出层
+			$(".add-review").on("click",function(){
+				var html = $(".pop-form").html();
+				layer.open({
+					className: "pop-mjh",
+					title: "Please add your review",
+					content: html,
+					anim: "up",
+					btn: ['Submit', 'Cancel'],
+				    yes: function(index){	/************	这里处理ajax请求/或直接form提交	***************/
+
+				    	// var overtall = $("input[name='overtall']:checked").val();
+				    	// var quality = $("input[name='quality']:checked").val();
+				    	// var environment = $("input[name='environment']:checked").val();
+				    	// var value = $("input[name='value']:checked").val();
+				    	// var service = $("input[name='service']:checked").val();
+				    	// $.ajax({
+				    	// 	type: 'post',
+				    	// 	url: '',
+				    	// 	data: {overtall:overtall,quality:quality,environment:environment,value:value,service:service},
+				    	// 	complete: function(){
+				    	// 		layer.open({
+								 //    type: 2
+								 //    ,content: 'Loading'
+								 //    ,shadeClose: false	//是否点击遮罩关闭
+								 //  });
+				    	// 	},
+				    	// 	success: function(data){
+				    	// 		if(data === "success"){
+				    	// 			layer.closeAll();
+
+				    	// 		}
+				    	// 	}
+				    	// })
+				    	$("#review-form").submit();
+				    },
+				})
+			})
 	    });
 		  
 	</script>
