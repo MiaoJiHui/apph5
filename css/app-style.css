@@ -277,16 +277,17 @@ button, input, select, textarea {
     color: inherit;
     font-size: 1em;
 }
+h1,h2,h3,h4,h5,h6 { margin: 0;}
 h1 { font-size: 3.2rem;}
 h2 { font-size: 2.5rem;}
 h3 { font-size: 2.2rem;}
+h4 { font-size: 1.8rem;}
 p { font-size: 1.6rem;}
 
 h1,h2,h3 {
 	font-family: 'icomoon', sans-serif;
-	margin: 0;
 	line-height: 1.2;
-    font-weight: 300;
+  font-weight: 300;
 }
 a{
     color: #000;
@@ -572,8 +573,6 @@ ul.dots > li.active{
     font-size: 1.4rem;
 }
 .pop-mjh .layui-m-layerbtn span[yes] {
-    // color: #fff;
-    // background-color: #fc4103;
     color: #fc4103;
 }
 /* map_detail页 */
@@ -590,4 +589,64 @@ ul.dots > li.active{
     text-align: center;
     width: 60%;
     margin: 10px auto;
+}
+/* review_detail */
+.review_detail {
+  margin: 0;
+  padding: 0;
+}
+.review_detail .comments-head > .gradient-color{
+  height: 3rem;
+  opacity: .4;
+  background-color: rgba(29, 161, 242,.2);  /* 后备机制 */
+  background: -webkit-linear-gradient(#1da1f2, #fff); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(#1da1f2, #fff);  Opera 11.1 - 12.0 
+  background: -moz-linear-gradient(#1da1f2, #fff); /* Firefox 3.6 - 15 */
+  background: linear-gradient(#1da1f2, #fff); /* 标准的语法 */
+}
+.review_detail .comments-head > p {
+    margin: 0 auto;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    width: 72%;
+}
+.review_detail .comments-content {
+  margin:1rem 0;
+  padding: 1rem;
+}
+.comments-content > div:first-child {
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.comments-item {
+    padding: 1rem;
+    overflow: auto;
+}
+.comments-item > .user-image {
+  width: 20%;
+  float: left;
+}
+.comments-item > .user-review {
+  width: 80%;
+  display: inline-block;
+  float: left;
+}
+.user-image > img {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+}
+.user-review > p {
+  margin: .4rem 0;
+  max-height: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.user-review .date {
+    color: #9a9a9a;
+    font-size: 1.2rem;
 }
