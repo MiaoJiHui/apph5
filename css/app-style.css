@@ -252,7 +252,7 @@ html {
 	font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif;
 	/*font-family: "HelveticaNeue Regular Bold";*/
   	line-height: 1.5;
-  	font-size: 62.5%;  /*	100%/16px ==> 1rem = 10px */
+  	font-size: 62.5%;  /*  10px */
 }
 body {
 	margin: 0;
@@ -575,6 +575,11 @@ ul.dots > li.active{
 .pop-mjh .layui-m-layerbtn span[yes] {
     color: #fc4103;
 }
+.pop-table .icon-star-o{
+    font-size: 1.8rem;
+    margin-right: .2rem;
+    color: #ccc;
+}
 /* map_detail页 */
 .map_detail {
     margin: 0;
@@ -607,7 +612,7 @@ ul.dots > li.active{
 .review_detail .comments-head > p {
     margin: 0 auto;
     text-align: center;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     width: 72%;
 }
 .review_detail .comments-content {
@@ -631,6 +636,21 @@ ul.dots > li.active{
   width: 80%;
   display: inline-block;
   float: left;
+  // background-color: #eee;
+  background-color: rgba(29, 161, 242,.2);
+  border-radius: .4rem;
+  padding: 1rem;
+  position: relative;
+}
+.comments-item > .user-review:before {
+    content: "";
+    border: 1rem solid #1da1f2;
+    position: absolute;
+    left: -2rem;
+    border-color: transparent #1da1f2 transparent transparent;
+    opacity: .2;
+    border-top-width: .8rem;
+    border-bottom-width: .8rem;
 }
 .user-image > img {
   width: 4.2rem;
@@ -645,8 +665,34 @@ ul.dots > li.active{
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
+  font-size: 1.4rem;
+
 }
 .user-review .date {
     color: #9a9a9a;
     font-size: 1.2rem;
+}
+table.review-star {
+    margin-top: 1rem;
+}
+.review-star .icon-star-o {
+    color: #ccc;
+}
+.review-star .icon-star {
+    color: #2486c3;
+}
+.more-review {
+    padding: 1rem 0;
+}
+.more-review > a{
+    text-align: center;
+    display: block;
+    color: #44A7CB;
+    font-weight: 400;
+    font-size: 1.6rem;
+    border-top: 1px solid #f7f7f7;
+}
+.more-review > a i {
+    font-weight: 500;
+    font-size: 1.8rem;
 }

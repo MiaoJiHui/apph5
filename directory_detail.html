@@ -127,51 +127,51 @@
 					<tr>
 						<td>Overtall</td>
 						<td>
-							<input type="radio" name="overtall" value="1">1 
-							<input type="radio" name="overtall" value="2">2
-							<input type="radio" name="overtall" value="3">3 
-							<input type="radio" name="overtall" value="4">4 
-							<input type="radio" name="overtall" value="5">5 
+							<a class="hello"><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
 						</td>
 					</tr>
 					<tr>
 						<td>Quality</td>
 						<td>
-							<input type="radio" name="quality" value=1>1 
-							<input type="radio" name="quality" value=2>2
-							<input type="radio" name="quality" value=3>3 
-							<input type="radio" name="quality" value=4>4 
-							<input type="radio" name="quality" value=5>5 
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
 						</td>
 					</tr>
 					<tr>
 						<td>Environment</td>
 						<td>
-							<input type="radio" name="environment" value=1>1 
-							<input type="radio" name="environment" value=2>2
-							<input type="radio" name="environment" value=3>3 
-							<input type="radio" name="environment" value=4>4 
-							<input type="radio" name="environment" value=5>5 
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
 						</td>
 					</tr>
 					<tr>
 						<td>Value</td>
 						<td>
-							<input type="radio" name="value" value=1>1 
-							<input type="radio" name="value" value=2>2
-							<input type="radio" name="value" value=3>3 
-							<input type="radio" name="value" value=4>4 
-							<input type="radio" name="value" value=5>5 
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
 						</td>
 					</tr>
 					<tr>
 						<td>Service</td>
 						<td>
-							<input type="radio" name="service" value=1>1 
-							<input type="radio" name="service" value=2>2
-							<input type="radio" name="service" value=3>3 
-							<input type="radio" name="service" value=4>4 
-							<input type="radio" name="service" value=5>5 
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
+							<a><i class="icon-star-o"></i></a>
 						</td>
 					</tr>
 				</table>
@@ -234,7 +234,7 @@
 					btn: ['Submit', 'Cancel'],
 				    yes: function(index){	/************	这里处理ajax请求/或直接form提交	***************/
 
-				    	// var overtall = $("input[name='overtall']:checked").val();
+				    	// var overall = $("input[name='overall']:checked").val();
 				    	// var quality = $("input[name='quality']:checked").val();
 				    	// var environment = $("input[name='environment']:checked").val();
 				    	// var value = $("input[name='value']:checked").val();
@@ -242,7 +242,7 @@
 				    	// $.ajax({
 				    	// 	type: 'post',
 				    	// 	url: '',
-				    	// 	data: {overtall:overtall,quality:quality,environment:environment,value:value,service:service},
+				    	// 	data: {overall:overall,quality:quality,environment:environment,value:value,service:service},
 				    	// 	complete: function(){
 				    	// 		layer.open({
 								 //    type: 2
@@ -260,6 +260,10 @@
 				    	$("#review-form").submit();
 				    },
 				})
+			})
+
+			$(".icon-star-o").on("click",function(){
+				alert(1)
 			})
 	    });
 		  
