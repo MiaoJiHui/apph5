@@ -140,28 +140,40 @@ function minifyFontSize(){
 }
 
 /** 改变行间距 **/
-
+// 暂时就处理一次
 function widenLine(){
 
-    // 第一次获取的是px值，如15px，所以要做相应处理
-    var html_lineH = $("html").css("line-height");
-    console.log(html_lineH);
-    if(html_lineH.indexOf("px") > 0){
-        var toNum = getNum(html_lineH);
-        $("html").css("line-height",parseFloat((toNum/10)+0.3));
-    }else if(html_lineH < 2.5){     
-        $("html").css("line-height",parseFloat(html_lineH+0.3));
-    }
-    // var html_lineH = getNum($("html").css("line-height"));  //默认行间距1.5
-    // if(html_lineH < 22){
-    //     $("html").css("line-height",parseFloat((html_lineH/10)+0.3));
-    // }
-    // if(html_lineH > 1 && html_lineH < 3){
-
-    // }
-    
-
+    // 默认第一次获取的line-height为px值
+    var line_height = $("body").css("line-height");
+    console.log(line_height)
+    if(line_height.indexOf("px") > 0){  //说明是第一次点击
+        $("body").css("line-height","1.8");
+    }else {
+        if(line_height == "1.2"){
+            $("body").css("line-height","1.5")
+        }
+        if(line_height >= "1.5"){
+            $("body").css("line-height", "1.8")
+        }
+    } 
 }
+
+function narrowLine(){
+    // 默认第一次获取的line-height为px值
+    var line_height = $("body").css("line-height");
+    console.log(line_height)
+    if(line_height.indexOf("px") > 0){  //说明是第一次点击
+        $("body").css("line-height","1.2");
+    }else {
+        if(line_height == "1.8"){
+            $("body").css("line-height","1.5")
+        }
+        if(line_height <= "1.5"){
+            $("body").css("line-height", "1.2")
+        }
+    } 
+}
+
 /* slider轮播生成小圆点 */
 function generateDots(){
     var imgs_len = $(".swipe-wrap").find("img").length;

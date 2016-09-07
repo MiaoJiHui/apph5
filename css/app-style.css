@@ -308,11 +308,16 @@ textarea:focus {
 .app-container img {
 	width: 100%;
 }
+
+/* 自动换行*/
+.app-container p {
+  word-wrap: break-word;
+}
 .list-pic{
-    max-height:120px;overflow:hidden;
+    max-height: 120px; overflow:hidden;
 }
 .list-pic img{
-    margin-top:-20%;
+    margin-top: -20%;
 }
 .app-container .headline {
 	margin-top: 1rem;
@@ -410,6 +415,7 @@ div.app-footer {
 .app-container .player video {
 	width:100%;
 	margin:1rem 0;
+  max-height: 24rem;
 }
 .video-detail p.text {
 	margin:0;
@@ -422,8 +428,11 @@ div.app-footer {
 }
 
 /** 轮播swiper **/
+.img-container img {
+  height: 24rem;
+}
 .swipe {
-  	overflow: hidden;
+	overflow: hidden;
 	visibility: hidden;
 	position: relative;
 }	
@@ -484,6 +493,9 @@ ul.dots > li.active{
 .info-list .info-table {
     background-color: #fbf5f4;
     border-bottom: 1px solid #e5cec9;
+    /** 防止table被撑裂 **/
+    table-layout: fixed;
+    word-wrap: break-word;
 }
 .info-list .info-table tr {
     font-size: 1.6rem;
