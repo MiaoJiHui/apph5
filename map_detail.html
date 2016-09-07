@@ -34,8 +34,11 @@
 		    var toolBar = new AMap.ToolBar({
 		        visible: true
 		    })
-			map.setLang("en");
+			map.setLang("zh");
 			map.addControl(toolBar);
+			// 通过经纬度获取位置点
+			var marker = new AMap.Marker();
+   		     marker.setMap(map);
 
 			var words_content = $(".words-content").height();
 			var outerHeight = $(window).height();

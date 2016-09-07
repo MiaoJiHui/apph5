@@ -5,12 +5,34 @@
  */
 
 
+/** 向zepto添加jquery中nextALL()/prevAll()方法 **/
+;(function($){
+var e = {
+    nextAll: function(s) {
+        var $els = $(), $el = this.next()
+        while( $el.length ) {
+            if(typeof s === 'undefined' || $el.is(s)) $els = $els.add($el)
+            $el = $el.next()
+        }
+        return $els
+    },
+    prevAll: function(s) {
+        var $els = $(), $el = this.prev()
+        while( $el.length ) {
+            if(typeof s === 'undefined' || $el.is(s)) $els = $els.add($el)
+            $el = $el.prev()
+        }
+        return $els
+    }
+}
+$.extend( $.fn, e )
+})(Zepto);
+
 /*
  * Zepto picLazyLoad Plugin
  * origin: http://ons.me/484.html
  * 20140517 
  */
-
 ;(function($){
     $.fn.picLazyLoad = function(settings){
         var $this = $(this),
@@ -160,6 +182,9 @@ function getCurrentDot(index){
     }
 
 }
+
+
+
 generateDots();
 getCurrentDot();
 

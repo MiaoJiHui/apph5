@@ -27,19 +27,26 @@ gulp.task('sass', function() {
 });
 
 
-// css合并＋压缩 + 浏览器兼容
-gulp.task('cssmin', function(){
-    return gulp.src('css/*.css')
+// css合并+ 浏览器兼容
+gulp.task('css', function(){
+    return gulp.src(['css/plyr.css', 'css/layer.css', 'css/app-style.css'])
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
         .pipe(concatCss("css/app-bundle.css"))
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('dist'))
         
 });
+
+// css压缩
+gulp.task('cssmin', function(){
+    return gulp.src('css/app-bundle.css')
+    .pipe(cssmin())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('dist'))
+});
+
 // 测试用
 gulp.task('autoprefixer', function(){
     return gulp.src('css/app-style.css')
@@ -51,16 +58,20 @@ gulp.task('autoprefixer', function(){
         .pipe(gulp.dest('css'))
 });
 
-// Concatenate & Minify JS
+// Concatenate 
 gulp.task('scripts', function(){
-    return gulp.src('js/*.js')
+    return gulp.src(['js/touch.js', 'js/swipe.js','js/plyr.js', 'js/layer.js', 'js/app-main.js'])
         .pipe(concat('app-all.js'))
+        .pipe(gulp.dest('dist/js'));
+});
+
+// Minify JS
+gulp.task('jsMinify', function(){
+    return gulp.src('dist/js/app-all.js')
         .pipe(uglify())
         .pipe(rename("app-all.min.js"))
         .pipe(gulp.dest('dist/js'))
-
 });
-
 
 // Watch Files For Changes
 gulp.task('watch', function() {

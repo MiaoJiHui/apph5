@@ -11,10 +11,19 @@
 		<div class="app-content">
 			<div class="comments-head">
 				<div class="gradient-color"></div>
-				<p>Add comments on 'directory list/title'</p>
+				<!-- <p>Add comments on 'directory list/title'</p> -->
+				<a class="add-comments">Add your review here!</a>
 			</div>
 			<div class="comments-content">
-				<div><span>Recent First&nbsp;<i class="icon-triangle-down"></i></span></div>
+				<div>
+					<a class="switch-button">Recent First&nbsp;<i class="icon-triangle-down"></i></a>
+					<div class="switch-pad">
+						<ul>
+							<li><a href="#">Recent First</a></li>
+							<li><a href="#">Hotest First</a></li>
+						</ul>
+					</div>
+				</div>
 				<div class="comments-item">
 					<div class="user-image"><img src="img/xly.png"></div>
 					<div class="user-review">
@@ -55,16 +64,151 @@
 						</p>
 					</div>
 				</div>
+				<div class="comments-item hide">
+					<div class="user-image"><img src="img/xly.png"></div>
+					<div class="user-review">
+						<h4>Joseph</h4>
+						<span class="date">February 5, 2016 12am</span>
+						<p>
+						  background: -webkit-linear-gradient(left, red , blue); /* Safari 5.1 - 6.0 */
+						  background: -o-linear-gradient(right, red, blue); /* Opera 11.1 - 12.0 */
+						</p>
+						<table class="review-star">
+							<tr>
+								<td>Overall</td>
+								<td>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star-o"></i>
+									<i class="icon-star-o"></i>
+								</td>
+							</tr>
+							<tr>
+								<td>Quality</td>
+								<td>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star-o"></i>
+									<i class="icon-star-o"></i>
+									<i class="icon-star-o"></i>
+								</td>
+							</tr>
+							<tr>
+								<td>Environment</td>
+								<td>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star-o"></i>
+									<i class="icon-star-o"></i>
+								</td>
+							</tr>
+							<tr>
+								<td>Value</td>
+								<td>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star-o"></i>
+								</td>
+							</tr>
+							<tr>
+								<td>Service</td>
+								<td>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star"></i>
+									<i class="icon-star-o"></i>
+									<i class="icon-star-o"></i>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="more-review">
+					<a id="load-more" href="javascript:;">More reviews(<span>22</span>)&nbsp;&nbsp;<i class="icon-angle-down"></i></a>
+				</div>
 			</div>
+			
 		</div>
 	</div>
 	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/touch.js"></script>
+	<script type="text/javascript" src="js/layer.js"></script>
     <script type="text/javascript" src="js/app-main.js"></script>
 	<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=14b1ac87ce81e76c481b9ca09bfb8ae1&&plugin=AMap.Scale,AMap.OverView,AMap.ToolBar">
 	</script>
 	<script type="text/javascript">
 		Zepto(function($){
+			$("#load-more").tap(function(){
+				$(".hide").show();
+			});
+			$(".switch-button").click(function(){
+				$(".switch-pad").toggle();
+			});
+			// review弹出层
+			$(".add-comments").tap(function(){
+				// var html = $(".pop-form").html();
+				layer.open({
+					className: "pop-mjh",
+					title: "Please add your review",
+					content: '<div class="pop-form"><form action="comments_detail.html" id="review-form" method="post"><div class="div-area"><p>Review Content</p><textarea rows="3" class="review-content" placeholder="Please enter your review"></textarea></div></form></div>',
+					anim: "up",
+					btn: ['Submit', 'Cancel'],
+					success: function(){
+						
+						$(".pop-table tr").each(function(index){
 
+							$(this).find("td > a").tap(function(){
+								$(this).find('i').removeClass("icon-star-o");	//未选中星星样式
+								$(this).find('i').addClass("icon-star");		//选中星星
+								$(this).prevAll().find('i').removeClass("icon-star-o");
+								$(this).prevAll().find('i').addClass("icon-star");
+								$(this).nextAll().find('i').removeClass("icon-star");
+								$(this).nextAll().find('i').addClass("icon-star-o");
+							})
+						})
+					},
+				    yes: function(index){	/************	这里处理ajax请求/或直接form提交	***************/
+				    	
+
+				    	// 获取评论comments
+				    	var review_content = $(".review-content").val();
+
+				    	if(review_content){
+				    		$("#review-form").submit();
+				    	}else{
+				    		 $(".pop-mjh h3").css("color","#fc4103");
+				    	}
+				    	/** ajax提交 **/
+				    	// $.ajax({
+				    	// 	type: 'post',
+				    	// 	url: '',
+				    	// 	data: {overall:overall,quality:quality,environment:environment,value:value,service:service},
+				    	// 	complete: function(){
+				    	// 		layer.open({
+								 //    type: 2
+								 //    ,content: 'Loading'
+								 //    ,shadeClose: false	//是否点击遮罩关闭
+								 //  });
+				    	// 	},
+				    	// 	success: function(data){
+				    	// 		if(data === "success"){
+				    	// 			layer.closeAll();
+
+				    	// 		}
+				    	// 	}
+				    	// })
+
+				    	
+				    	/** form提交 **/
+				    	// $("#review-form").submit();
+				    },
+				})
+			})
+			
 	    });
 	</script> 
 
