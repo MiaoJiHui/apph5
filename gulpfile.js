@@ -18,11 +18,11 @@ var reload = browserSync.reload;
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
-        server: "./"
-        // proxy: "192.168.0.65"
+        // server: "./"
+        proxy: "192.168.1.108"
     });
-    gulp.watch("scss/*.scss", ['sass']);
-    gulp.watch("*.html").on('change', reload);
+    gulp.watch("css/*.scss", ['sass']);
+    gulp.watch(['*.html','dist/css/*.css','dist/js/*.js']).on('change', reload);
 });
 
 
@@ -56,7 +56,7 @@ gulp.task('css', function(){
 
 // css压缩
 gulp.task('cssmin', function(){
-    return gulp.src('css/app-bundle.css')
+    return gulp.src('dist/css/app-bundle.css')
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('dist'))
@@ -94,6 +94,9 @@ gulp.task('watch', function() {
     gulp.watch('scss/*.scss', ['sass']);
     gulp.watch('css/*.css', ['css','cssmin']);
 });
+
+/** 上线版 **/
+
 
 // Default Task
 gulp.task('default', ['lint', 'scripts', 'cssmin', 'watch']);
