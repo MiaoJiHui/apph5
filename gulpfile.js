@@ -10,6 +10,20 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var concatCss = require('gulp-concat-css');
 var autoprefixer = require('gulp-autoprefixer');
+var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
+
+
+// 静态服务器 + 监听 
+gulp.task('serve', ['sass'], function() {
+
+    browserSync.init({
+        server: "./"
+        // proxy: "192.168.0.65"
+    });
+    gulp.watch("scss/*.scss", ['sass']);
+    gulp.watch("*.html").on('change', reload);
+});
 
 
 // Lint Task
@@ -23,7 +37,8 @@ gulp.task('lint', function() {
 gulp.task('sass', function() {
     return gulp.src('scss/*.scss')
         .pipe(sass())
-        .pipe(gulp.dest('css'));
+        .pipe(gulp.dest('css'))
+        .pipe(reload({stream: true}));
 });
 
 
@@ -75,9 +90,9 @@ gulp.task('jsMinify', function(){
 
 // Watch Files For Changes
 gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['lint', 'scripts']);
+    gulp.watch('js/*.js', ['lint', 'scripts', 'jsMinify']);
     gulp.watch('scss/*.scss', ['sass']);
-    gulp-watch('css/*css', ['cssmin']);
+    gulp.watch('css/*.css', ['css','cssmin']);
 });
 
 // Default Task
